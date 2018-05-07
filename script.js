@@ -12,15 +12,24 @@ let run = () => {
             url : apiBase + x,
             type : 'GET',
             success : (r) => {
-                parser = new DOMParser();
-                dom = parser.parseFromString(r, 'text/html');
-                let contributions = dom.querySelectorAll('h2.f4')[1].innerText;
-
-                userScores.push({
-                    username : x,
-                    score : parseInt(contributions.split(" ")[6].replace(",",""))
-                });
-                resolve(x);
+                
+                if(r != 'Not Found') {
+                    console.log(4);
+                    parser = new DOMParser();
+                    dom = parser.parseFromString(r, 'text/html');
+                    let contributions = dom.querySelectorAll('h2.f4')[1].innerText;
+                    console.log(contributions);
+                    userScores.push({
+                        username : x,
+                        score : parseInt(contributions.split(" ")[6].replace(",",""))
+                    });
+                    $('#render').html(`${userScores.length} of ${usernames.length} done...`);
+                    resolve(x);
+                    
+                }
+                else{
+                    resolve(x);
+                }
             },
             error : () => {
                 resolve(x);
@@ -34,7 +43,14 @@ let run = () => {
 
     Promise.all(usernames).then((v) => {
         userScores = userScores.sort((a,b) => a.score < b.score);
-        $('#render').html(JSON.stringify(userScores));
+        let str = '<ol>';
+        for(let i in userScores) {
+            str += `<li>${userScores[i].username} - ${userScores[i].score}</li>`;
+        }
+        str += '</ol>';
+        $('#render').html(str);
+    }).catch((e) => {
+
     });
 
 

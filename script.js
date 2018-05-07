@@ -42,7 +42,7 @@ let run = () => {
 
 
     Promise.all(usernames).then((v) => {
-        userScores = userScores.sort((a,b) => a.score < b.score);
+        userScores = userScores.sort((a,b) => b.score - a.score);
         let str = '<ol>';
         for(let i in userScores) {
             str += `<li>${userScores[i].username} - ${userScores[i].score}</li>`;

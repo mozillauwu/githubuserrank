@@ -4,7 +4,7 @@ githubuserrank ranks given github usernames according to contribution.
 
 ### How to use it
 
-- Goto [app](https://mozillauwu.github.io/githubuserrank/)
+- Goto [app](https://mozillauwu.github.io/githubuserrank/) or open `index.html` from your web browser.
 - Copy and paste new line seperated github usernames list.
 - Click on `Run` button and wait until it completes.
 

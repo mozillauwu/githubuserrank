@@ -13,7 +13,6 @@ let run = () => {
                     parser = new DOMParser();
                     dom = parser.parseFromString(r, 'text/html');
                     let contributions = dom.querySelectorAll('h2.f4')[1].innerText;
-                    console.log(contributions);
                     userScores.push({
                         username : x,
                         score : parseInt(contributions.split(" ")[6].replace(",",""))

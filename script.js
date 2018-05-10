@@ -12,11 +12,14 @@ let run = () => {
                 if(r != 'Not Found') {
                     parser = new DOMParser();
                     dom = parser.parseFromString(r, 'text/html');
-                    let contributions = dom.querySelectorAll('h2.f4')[1].innerText;
-                    userScores.push({
-                        username : x,
-                        score : parseInt(contributions.split(" ")[6].replace(",",""))
-                    });
+                    let contributionsDOM = dom.querySelectorAll('h2.f4');
+                    if(contributionsDOM.length != 0){
+                        let contributions = contributionsDOM[1].innerText;
+                        userScores.push({
+                            username : x,
+                            score : parseInt(contributions.split(" ")[6].replace(",",""))
+                        });
+                    }
                     $('#render').html(`${userScores.length} of ${usernames.length} done...`);
                     resolve(x);               
                 }

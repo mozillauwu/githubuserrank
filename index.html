@@ -3,15 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <title>githubuserrank</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
   <body>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-  <h3>githubuserrank</h3>
-  <hr/>
-  <textarea id="usernames" style="height:400px;"></textarea><br/>
-  <input type="button" value="Run" onclick="run();"/>
-  <div id = "render"></div>
-  <script src="script.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+      <div class="jumbotron" style="margin: 50px;">
+        <div class="container">
+          <!-- For Main Title -->
+          <div class="row">
+            <h3 class="display-4"><b>GitHub User Ranking System</b></h3>
+          </div>
+          <!-- For Input Box & Run Button -->
+          <div class="row">
+            <br>
+            <div class="col-md-6 text-center">
+              <textarea id="usernames" style="height:300px;width: 300px;" placeholder="Enter Your GitHub User Name Here ..."></textarea>
+            </div>
+            <div class="col-md-6">
+              <input type="button" class="btn btn-primary btn-lg" value="Run" onclick="run();"/>
+              <br>
+              <hr>
+              <div id = "render"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="script.js"></script>
+  </body>
 </html>
